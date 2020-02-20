@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from 'src/store';
+import { EffectsModule } from '@ngrx/effects';
+import { WorkspaceEffects } from 'src/store/workspace';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { reducers, metaReducers } from 'src/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    EffectsModule.forRoot([WorkspaceEffects]),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
